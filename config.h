@@ -30,9 +30,7 @@ static const Rule rules[] = {
 	 */
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
 	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -71,6 +69,7 @@ static const char *pavuctrlcmd[] = { "pavucontrol", NULL };
 static const char *stalonetraycmd[] = { "stalonetray", NULL };
 static const char *powermenucmd[] = { "/opt/dwmblocks/powermenu", NULL };
 static const char *calcursecmd[] = { "st", "-e", "calcurse", NULL };
+static const char *lfcmd[] = { "st", "-e", "lf", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -81,6 +80,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = stalonetraycmd } },
 	{ MODKEY|ShiftMask,             XK_0,      spawn,          {.v = powermenucmd } },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = calcursecmd } },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = lfcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
