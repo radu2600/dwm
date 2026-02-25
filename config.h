@@ -1,25 +1,24 @@
-/* See LICENSE file for copyright and license details. */
-
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int gappx     = 8;        /* gaps between windows */
+static const unsigned int gappx     = 0;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=11", "Font Awesome 7 Free:pixelsize=12:antialias=true:autohint=true" };
+static const char *fonts[]          = { "SF Mono:size=11", "NotoColorEmoji:pixelsize=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=11";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static const char col_orange[]      = "#d1711e";
-static const char col_red[]	    = "#770000";
+/* static const char col_cyan[]        = "#004477"; */
+static const char col_mov[]      = "#940a4b";
+static const char col_bg[]	    = "#f2d5d3";
+static const char col_fg[]	    = "#000000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_orange,  col_red  },
+	[SchemeNorm] = { col_fg, col_bg, col_gray2 },
+	[SchemeSel]  = { col_fg, col_mov,  col_mov  },
 };
 
 /* tagging */
@@ -64,7 +63,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_mov, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *bravecmd[] = { "brave", NULL };
 static const char *pavuctrlcmd[] = { "pavucontrol", NULL };
@@ -72,6 +71,7 @@ static const char *stalonetraycmd[] = { "stalonetray", NULL };
 static const char *powermenucmd[] = { "/opt/dwmblocks/powermenu", NULL };
 static const char *calcursecmd[] = { "st", "-e", "calcurse", NULL };
 static const char *lfcmd[] = { "st", "-e", "lf", NULL };
+static const char *prtscrcmd[] = { "flameshot", "gui", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -83,6 +83,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_0,      spawn,          {.v = powermenucmd } },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = calcursecmd } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = lfcmd } },
+	{ 0,             		XK_Print,  spawn,          {.v = prtscrcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
