@@ -13,12 +13,13 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 /* static const char col_cyan[]        = "#004477"; */
 static const char col_emerald[]      = "#0a4731";
+static const char col_orange[]       = "#E06D14";
 static const char col_bg[]	    = "#e4ede7";
 static const char col_fg[]	    = "#000000";
 static const char *colors[][3]      = {
 	/*               fg      bg              border   */
 	[SchemeNorm] = { col_fg, col_bg,	 col_gray2 },
-	[SchemeSel]  = { col_bg, col_emerald,    col_emerald  },
+	[SchemeSel]  = { col_bg, col_orange,    col_orange  },
 };
 
 /* tagging */
@@ -65,7 +66,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_emerald, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *bravecmd[] = { "brave", NULL };
+static const char *firefoxcmd[] = { "firefox-bin", NULL };
 static const char *pavuctrlcmd[] = { "pavucontrol", NULL };
 static const char *stalonetraycmd[] = { "stalonetray", NULL };
 static const char *powermenucmd[] = { "/opt/dwmblocks/powermenu", NULL };
@@ -77,7 +78,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_n, 	   spawn,          {.v = bravecmd } },
+	{ MODKEY|ShiftMask,             XK_n, 	   spawn,          {.v = firefoxcmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = pavuctrlcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = stalonetraycmd } },
 	{ MODKEY|ShiftMask,             XK_0,      spawn,          {.v = powermenucmd } },
